@@ -1,0 +1,47 @@
+doctype html
+html(lang="en")
+    head
+    body
+        h1 Test API responses:
+        if message
+            p #{message}
+
+        form(action='/api/books', method='POST')
+            label Book Title:
+            input(type='text', name='title')
+            button(type='submit') Submit
+
+        form(action='/api/books/id', method='POST')
+            label BookId to comment on:
+            input(type='text', name='_id')
+            label Comment:
+            input(type='text', name='text')
+            button(type='submit') Submit
+
+        if books
+            each book in books
+                form(action=`/api/books/${book.id}?_method=DELETE`, method='POST')
+                    p Book Title: #{book.title}
+                        button(type='submit') Delete
+                    p Book Id: #{book._id}
+                    a(href=`/api/books/${book._id}`) #{book._comments.length} comments
+                    br
+                    input(type='text', name='text')
+                    button(type='submit', formaction=`/api/books/${book._id}`, formmethod='POST') Comment
+            form(action='/api/books?_method=DELETE', method='POST')
+                button(type='submit') Delete All
+        
+        if title
+            form
+                h3 Book title: #{title}
+                    div
+                        p Comments
+                        each comment in comments
+                            div
+                                p= comment.text
+                                p= comment.created_on
+                    input(type='text', name='text')
+                    button(type='submit', formaction=`/api/books/${book._id}?_METHOD=POST`, formmethod='POST') Comment
+                    a(href='/api/books') Back
+
+        

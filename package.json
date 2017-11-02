@@ -1,0 +1,21 @@
+{
+  "name": "personal-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Lue Hang",
+  "license": "ISC",
+  "devDependencies": {
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "helmet": "^3.9.0",
+    "method-override": "^2.3.10",
+    "mongoose": "^4.12.5",
+    "pug": "^2.0.0-rc.4"
+  }
+}
